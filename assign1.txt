@@ -1,0 +1,55 @@
+code:
+````
+import secrets
+import string
+
+def generate_password(length=12):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(secrets.choice(characters) for _ in range(length))
+    return password
+
+def generate_passwords(num_passwords=1, length=12):
+    passwords = [generate_password(length) for _ in range(num_passwords)]
+    return passwords
+
+def main():
+    print("Password Generator")
+    print("------------------")
+
+    try:
+        # Get user input for the number of passwords and length
+        num_passwords = int(input("Enter the number of passwords to generate: "))
+        password_length = int(input("Enter the length of each password: "))
+
+        # Generate passwords
+        passwords = generate_passwords(num_passwords, password_length)
+
+        # Display generated passwords
+        print("\nGenerated Passwords:")
+        for idx, password in enumerate(passwords, start=1):
+            print(f"Password {idx}: {password}")
+
+    except ValueError:
+        print("Invalid input. Please enter valid numbers for the number of passwords and password length.")
+
+if __name__ == "__main__":
+    main()
+
+
+
+``````````````````````````````````````````````````````````
+
+
+
+output of this code: 
+```````````````````
+
+Password Generator
+Enter the number of passwords to generate: 5
+Enter the length of each password: 5
+Generated Passwords:
+Password 1: &6Y3&
+Password 2: Hi2FW
+Password 3: ZJE~i
+Password 4: cq{VB
+Password 5: <Ps*Z
